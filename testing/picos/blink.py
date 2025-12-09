@@ -1,5 +1,3 @@
-"""make the LED on pico blink to make sure the raspi is connected and everything is working"""
-
 from machine import Pin
 from utime import sleep
 
