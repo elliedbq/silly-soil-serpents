@@ -1,3 +1,6 @@
 matlab scripts to create and visualize the slithering pattern
 
 based on these research papers:
+https://www.researchgate.net/publication/341272677_Analysis_and_Validation_of_Serpentine_Locomotion_Dynamics_of_a_Wheeled_Snake_Robot_Moving_on_Varied_Sloped_Environments
+
+https://www.researchgate.net/publication/3556554_'Sidewinding'_locomotion_gait_for_hyper-redundant_robots
