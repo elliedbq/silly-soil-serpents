@@ -41,11 +41,13 @@ while True:
 
         else:
             theta[joint] = calibration[joint]
+    # clamping
+    theta[joint] = max(0, min(180, round(angle, 2)))
 
     # Servo target angles
     message = ",".join(map(str, theta)) + "\n"
     print(message)
-    time.sleep(15)
+    time.sleep(1)
 
     # # Send once
     # ser.write(message.encode('utf-8'))
