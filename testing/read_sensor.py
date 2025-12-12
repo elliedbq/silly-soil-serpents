@@ -1,23 +1,15 @@
-# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
-# SPDX-License-Identifier: MIT
-
+# read_sensor.py (MicroPython + driver port)
+from machine import I2C, Pin
 import time
+from stemma_soil_sensor import StemmaSoilSensor
 
-import board
+# Pico I2C0 pins (adjust if needed)
+i2c = I2C(0, scl=Pin(1), sda=Pin(0), freq=100000)
 
-from adafruit_seesaw.seesaw import Seesaw
-
-i2c_bus = board.I2C()  # uses board.SCL and board.SDA
-# i2c_bus = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
-
-ss = Seesaw(i2c_bus, addr=0x36)
+ss = StemmaSoilSensor(i2c, addr=0x36)  # soil sensor at 0x36
 
 while True:
-    # read moisture level through capacitive touch pad
-    touch = ss.moisture_read()
-
-    # read temperature from the temperature sensor
+    moisture = ss.get_moisture()
     temp = ss.get_temp()
-
-    print("temp: " + str(temp) + "  moisture: " + str(touch))
+    print("temp: {:.2f} °C  moisture: {}".format(temp, moisture))
     time.sleep(1)
