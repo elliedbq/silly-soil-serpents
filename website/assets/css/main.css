@@ -8617,3 +8617,103 @@ input, select, textarea {
 			#wrapper.divided > .invert:first-child {
 				box-shadow: none !important;
 			}
+
+/* not part of template. circle image gallery */
+
+.circle-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  padding: 3rem;
+  justify-items: center;
+}
+
+.circle-card {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.circle-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.circle-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  padding: 1rem;
+}
+
+.circle-card .overlay {
+  color: white;
+}
+
+.circle-card .overlay h3,
+.circle-card .overlay p {
+  color: white;
+}
+
+
+.circle-card:hover img {
+  transform: scale(1.1);
+}
+
+.circle-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  margin-bottom: 0.5rem;
+}
+
+.overlay p {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background: white;
+  color: black;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #ddd;
+}
+
+
+.circle-gallery .linkedin-invert {
+  color: #ddd;        /* background logo color */
+  text-decoration: none;
+}
+
+.circle-gallery .linkedin-invert .fa-stack-1x {
+  color: transparent;   /* makes the "in" cut out */
+}
+
+.circle-gallery .linkedin-invert .fa-stack {
+  transition: transform 0.3s ease;
+}
+
+.circle-gallery .linkedin-invert:hover .fa-stack {
+  transform: scale(1.15);
+}
