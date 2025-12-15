@@ -1,0 +1,394 @@
+<!DOCTYPE HTML>
+<!--
+	Story by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Silly Soil Serpents</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="divided">
+
+        <!-- Navigation -->
+		<nav id="scrollNav">
+			<div class="nav-left">
+				<a href="index.html#top" class="site-name">Silly Soil Serpents</a>
+			</div>
+
+			<div class="nav-right">
+				<a href="overview.html">Overview</a>
+
+				<div class="nav-dropdown">
+					<a href="mechanical.html" class="nav-parent">
+						Mechanical
+					</a>
+
+					<div class="dropdown-menu">
+						<a href="mechanical.html#links">Links</a>
+						<a href="mechanical.html#skin">Skin</a>
+						<a href="mechanical.html#head">Head</a>
+					</div>
+				</div>
+
+
+				<div class="nav-dropdown">
+					<a href="software.html" class="nav-parent">
+						Software
+					</a>
+
+					<div class="dropdown-menu">
+						<a href="software.html#movement">Movement</a>
+						<a href="software.html#dashboard">Dashboard</a>
+					</div>
+				</div>
+
+				<div class="nav-dropdown">
+					<a href="mechanical.html" class="nav-parent">
+						Electrical
+					</a>
+
+					<div class="dropdown-menu">
+						<a href="electrical.html#components">Components</a>
+						<a href="electrical.html#firmware">Firmware</a>
+						<a href="electrical.html#wiring">Wiring</a>
+					</div>
+				</div>
+
+			</div>
+		</nav>
+
+
+
+        <!-- One -->
+        <section id="home"
+            class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+            <div class="content">
+                <h1>Soil Analyzing Snake</h1>
+                <p class="major">Overview of the project.</p>
+                <ul class="actions stacked">
+                    <li><a href="#first" class="button big wide smooth-scroll-middle">Get Started</a></li>
+                </ul>
+            </div>
+            <div class="image">
+                <img src="images/banner.jpg" alt="" />
+            </div>
+        </section>
+
+
+
+
+        <!-- System Diagram -->
+        <section class="wrapper style1 align-center" id="objectives">
+            <div class="inner">
+                <h2>System Diagram</h2>
+                <p>Core goals behind each design decision we made.</p>
+                <span class="image fit"><img src="images/system-diagram.png" alt="" /></span>
+                <p>The objective of our project was to create a robot, inspired by a snake, that takes
+                    measurements to evaluate soil. We designed it to be used in the context of evaluating
+                    risk of forest fire. The equipped sensor is therefore a moisture sensor, and
+                    measurements map to the user's dashboard so that they can see areas with dry soil.
+                    We drew inspiration from snakes in terms of the three styles of motion that the
+                    snake performs, all exhibited by species of snakes.
+
+                </p>
+            </div>
+        </section>
+
+        <!-- Energy and Data Flow Diagram -->
+        <section class="wrapper style1 align-center" id="objectives">
+            <div class="inner">
+                <h2>Energy and Data Flow Diagram</h2>
+                <p>Core goals behind each design decision we made.</p>
+                <span class="image fit"><img src="images/system-diagram.png" alt="" /></span>
+                <p>The objective of our project was to create a robot, inspired by a snake, that takes
+                    measurements to evaluate soil. We designed it to be used in the context of evaluating
+                    risk of forest fire. The equipped sensor is therefore a moisture sensor, and
+                    measurements map to the user's dashboard so that they can see areas with dry soil.
+                    We drew inspiration from snakes in terms of the three styles of motion that the
+                    snake performs, all exhibited by species of snakes.
+
+                </p>
+            </div>
+        </section>
+
+        <!-- Bill of Materials-->
+         <section class="wrapper style1 align-center" id="bom">
+			<div class="inner">
+        <section>
+            <header>
+                <h2>Bill of Materials</h2>
+            </header>
+            <div class="content">
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Purpose</th>
+                                <th>Found/Bought From</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Soil Sensor (x2)</td>
+                                <td>Measure soil moisture</td>
+                                <td>Digikey</td>
+                                <td>15.00</td>
+                            </tr>
+                            <tr>
+                                <td>JST Wire</td>
+                                <td>Connect soil sensor to microcontroller</td>
+                                <td>Adafruit</td>
+                                <td>0.95</td>
+                            </tr>
+                            <tr>
+                                <td>HM01B0 Arducam</td>
+                                <td>Camera for dashboard</td>
+                                <td>Amazon</td>
+                                <td>12.99</td>
+                            </tr>
+                            <tr>
+                                <td>ICM-20948 (x2)</td>
+                                <td>IMU for location data</td>
+                                <td>Adafruit</td>
+                                <td>29.90</td>
+                            </tr>
+                            <tr>
+                                <td>6V Battery</td>
+                                <td>Power supply</td>
+                                <td>Amazon</td>
+                                <td>19.99</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="1"></td>
+                                <td colspan="1"></td>
+                                <td>Total Purchased (excluding found/borrowed)</td>
+                                <td>100.00</td>
+                            </tr>
+                            <tr>
+                                <td colspan="1"></td>
+                                <td colspan="1"></td>
+                                <td>Grand Total</td>
+                                <td>100.00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <p>*Bought/found items. Costs are only estimates.</p>
+            </div>
+        </section>    </div>
+        </section>
+
+
+        
+
+        <!-- Gallery -->
+        <section class="wrapper style1 align-center">
+            <div class="inner">
+                <h2>Image Gallery</h2>
+                <p>Working on the project!</p>
+            </div>
+
+            <!-- Gallery -->
+            <div class="gallery style1 medium lightbox onscroll-fade-in">
+                <article>
+                    <a href="images/gallery/fulls/01.jpg" class="image">
+                        <img src="images/gallery/thumbs/01.jpg" alt="" />
+                    </a>
+                    <div class="caption">
+                        <h3>Ipsum Dolor</h3>
+                        <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                        <ul class="actions fixed">
+                            <li><span class="button small">Details</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <a href="images/gallery/fulls/02.jpg" class="image">
+                        <img src="images/gallery/thumbs/02.jpg" alt="" />
+                    </a>
+                    <div class="caption">
+                        <h3>Feugiat Lorem</h3>
+                        <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                        <ul class="actions fixed">
+                            <li><span class="button small">Details</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <a href="images/gallery/fulls/03.jpg" class="image">
+                        <img src="images/gallery/thumbs/03.jpg" alt="" />
+                    </a>
+                    <div class="caption">
+                        <h3>Magna Amet</h3>
+                        <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                        <ul class="actions fixed">
+                            <li><span class="button small">Details</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <a href="images/gallery/fulls/04.jpg" class="image">
+                        <img src="images/gallery/thumbs/04.jpg" alt="" />
+                    </a>
+                    <div class="caption">
+                        <h3>Sed Tempus</h3>
+                        <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                        <ul class="actions fixed">
+                            <li><span class="button small">Details</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <a href="images/gallery/fulls/05.jpg" class="image">
+                        <img src="images/gallery/thumbs/05.jpg" alt="" />
+                    </a>
+                    <div class="caption">
+                        <h3>Ultrices Magna</h3>
+                        <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                        <ul class="actions fixed">
+                            <li><span class="button small">Details</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <a href="images/gallery/fulls/06.jpg" class="image">
+                        <img src="images/gallery/thumbs/06.jpg" alt="" />
+                    </a>
+                    <div class="caption">
+                        <h3>Sed Tempus</h3>
+                        <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                        <ul class="actions fixed">
+                            <li><span class="button small">Details</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <a href="images/gallery/fulls/07.jpg" class="image">
+                        <img src="images/gallery/thumbs/07.jpg" alt="" />
+                    </a>
+                    <div class="caption">
+                        <h3>Ipsum Lorem</h3>
+                        <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                        <ul class="actions fixed">
+                            <li><span class="button small">Details</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <a href="images/gallery/fulls/08.jpg" class="image">
+                        <img src="images/gallery/thumbs/08.jpg" alt="" />
+                    </a>
+                    <div class="caption">
+                        <h3>Magna Risus</h3>
+                        <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                        <ul class="actions fixed">
+                            <li><span class="button small">Details</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <a href="images/gallery/fulls/09.jpg" class="image">
+                        <img src="images/gallery/thumbs/09.jpg" alt="" />
+                    </a>
+                    <div class="caption">
+                        <h3>Tempus Dolor</h3>
+                        <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                        <ul class="actions fixed">
+                            <li><span class="button small">Details</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <a href="images/gallery/fulls/10.jpg" class="image">
+                        <img src="images/gallery/thumbs/10.jpg" alt="" />
+                    </a>
+                    <div class="caption">
+                        <h3>Sed Etiam</h3>
+                        <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                        <ul class="actions fixed">
+                            <li><span class="button small">Details</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <a href="images/gallery/fulls/11.jpg" class="image">
+                        <img src="images/gallery/thumbs/11.jpg" alt="" />
+                    </a>
+                    <div class="caption">
+                        <h3>Magna Lorem</h3>
+                        <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                        <ul class="actions fixed">
+                            <li><span class="button small">Details</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <a href="images/gallery/fulls/12.jpg" class="image">
+                        <img src="images/gallery/thumbs/12.jpg" alt="" />
+                    </a>
+                    <div class="caption">
+                        <h3>Ipsum Dolor</h3>
+                        <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                        <ul class="actions fixed">
+                            <li><span class="button small">Details</span></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+        </section>
+
+
+
+        
+
+        <!-- Footer -->
+        <footer class="wrapper style1 align-center">
+            <div class="inner">
+                <ul class="icons">
+                    <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a>
+                    </li>
+                    <li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+                    </li>
+                    <li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a>
+                    </li>
+                    <li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+                <p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
