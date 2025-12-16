@@ -2,7 +2,7 @@ from machine import Pin, PWM
 import sys
 
 # Setup 5 servos on GPIO pins
-pins = [2, 4, 5, 6, 7, 9]
+pins = [2, 3, 4, 5, 6, 7]
 servos = [PWM(Pin(p)) for p in pins]
 for s in servos:
     s.freq(50)  # Standard servo frequency

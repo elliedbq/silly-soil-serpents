@@ -16,10 +16,10 @@ K_n = 0.5 #degree of curve
 beta = (2*K_n*math.pi)/n #phase lag
 # alpha_0 = curvature amplitude - don't know how to calculate??
 joints = list((range(num_servos))) #joints that can move horizontally
-t_run = 5 # run length (seconds)
+t_run = 10 # run length (seconds)
 
 # Parameters that we control:
-alpha = 25.0 # winding angle parameter, change this to change the shape of the motion
+alpha = 150.0 # winding angle parameter, change this to change the shape of the motion
 omega = 2.0 # speed parameter, change this to change speed
 gamma = -0.05 # heading parameter, changes direction (0=straight forward)
 
