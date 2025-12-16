@@ -109,6 +109,19 @@
 					with four Pico Ws over wifi, where once pico controlled the motors, 
 					one controlled and sent data back for the soil sensor, once sent data back
 					for the camera, and the last set data back for the IMU. Unfortunately, without
+
+
+					For the motors, we flashed micropython onto the pico w and used mpremote to send 
+					code and run code on the pico. the pi would run the code with the math and send the 
+					motor commands through the serial terminal
+
+					for the sensor, we flashed circuit python onto the pico w. to change the code, 
+					we would plug the pico into the computer and change the code.py file. 
+					We also had to add the adafruit libraries seesaw and bus to the pico. 
+					The pico ran code to print the sensor values on the serial monitor
+					 The pi read the serial monitor and saved it to a csv.
+
+
 				</p>
                 
             </div>
@@ -124,7 +137,15 @@
             </div>
         </section>
 
-
+<!-- Acknowledgements -->
+        <section class="wrapper style1 align-center" id="ack">
+            <div class="inner">
+                <h2>Acknowledgements</h2>
+                <p>Thank you Oscar Bao for helping us with ece stuff because we don't have an ece. </p>
+                <span class="image fit"><img src="images/oscar-working.jpeg" alt="" /></span>
+                
+            </div>
+        </section>
 		
 
 		<!-- Footer -->
