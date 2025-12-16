@@ -3044,6 +3044,34 @@ input, select, textarea {
 		background-color: transparent;
 	}
 
+			/* Left-align text columns */
+			table th:nth-child(1),
+			table td:nth-child(1),
+			table th:nth-child(2),
+			table td:nth-child(2),
+			table th:nth-child(3),
+			table td:nth-child(3) {
+			text-align: left;
+			}
+
+			/* Right-align prices */
+			table th:nth-child(4),
+			table td:nth-child(4) {
+			text-align: right;
+			}
+
+			/* Totals */
+			table tfoot td:nth-child(3) {
+			text-align: right;
+			font-weight: 400;
+			}
+			table tfoot td:nth-child(4) {
+			text-align: right;
+			}
+
+
+
+
 /* Banner (transitions) */
 
 	.banner.onload-content-fade-up .content {
@@ -8617,3 +8645,264 @@ input, select, textarea {
 			#wrapper.divided > .invert:first-child {
 				box-shadow: none !important;
 			}
+
+/* not part of template. circle image gallery */
+
+.circle-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  padding: 3rem;
+  justify-items: center;
+}
+
+.circle-card {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.circle-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.circle-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  padding: 1rem;
+}
+
+.circle-card .overlay {
+  color: white;
+}
+
+.circle-card .overlay h3,
+.circle-card .overlay p {
+  color: white;
+}
+
+
+.circle-card:hover img {
+  transform: scale(1.1);
+}
+
+.circle-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  margin-bottom: 0.5rem;
+}
+
+.overlay p {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background: white;
+  color: black;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #ddd;
+}
+
+
+.circle-gallery .linkedin-invert {
+  color: #ddd;        /* background logo color */
+  text-decoration: none;
+}
+
+.circle-gallery .linkedin-invert .fa-stack-1x {
+  color: transparent;   /* makes the "in" cut out */
+}
+
+.circle-gallery .linkedin-invert .fa-stack {
+  transition: transform 0.3s ease;
+}
+
+.circle-gallery .linkedin-invert:hover .fa-stack {
+  transform: scale(1.15);
+}
+
+
+
+/*scroll navigation*/
+#scrollNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 24px;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+/* Show on scroll up */
+#scrollNav.show {
+  transform: translateY(0);
+}
+
+/* Left side */
+.nav-left .site-name {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+/* Right side */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+#scrollNav a,
+.nav-dropdown span {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 10px 0;
+  min-width: 160px;
+  display: none;
+  flex-direction: column;
+}
+
+.dropdown-menu a {
+  padding: 8px 16px;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Show dropdown on hover */
+.nav-dropdown:hover .dropdown-menu {
+  display: flex;
+}
+.nav-dropdown > .nav-parent {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.nav-dropdown > .nav-parent {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.grid-text {
+  font-size: 0.95rem;
+}
+
+.grid-video video {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+.grid-video iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 6px;
+}
+
+
+
+.flex-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Default: 1 column */
+.flex-grid .grid-item {
+  grid-column: span 1;
+}
+
+/* Span 2 columns */
+.flex-grid .span-2 {
+  grid-column: span 2;
+}
+
+/* Images */
+.flex-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .flex-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flex-grid .span-2 {
+    grid-column: span 1;
+  }
+}

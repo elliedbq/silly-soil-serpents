@@ -338,4 +338,23 @@
 
 						});
 
+						// Scroll-up navigation show/hide
+var lastScrollTop = 0;
+var $nav = $('#scrollNav');
+
+$(window).on('scroll', function () {
+  var st = $(this).scrollTop();
+
+  if (st < lastScrollTop && st > 50) {
+    // scrolling UP
+    $nav.addClass('show');
+  } else {
+    // scrolling DOWN or idle
+    $nav.removeClass('show');
+  }
+
+  lastScrollTop = st;
+});
+
+
 })(jQuery);

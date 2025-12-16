@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<!--
+	Story by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Silly Soil Serpents</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper" class="divided">
+
+		<!-- Navigation -->
+		<nav id="scrollNav">
+			<div class="nav-left">
+				<a href="index.html#top" class="site-name">Silly Soil Serpents</a>
+			</div>
+
+			<div class="nav-right">
+				<a href="overview.html">Overview</a>
+
+				<div class="nav-dropdown">
+					<a href="mechanical.html" class="nav-parent">
+						Mechanical
+					</a>
+
+					<div class="dropdown-menu">
+						<a href="mechanical.html#links">Links</a>
+						<a href="mechanical.html#skin">Skin</a>
+						<a href="mechanical.html#head">Head</a>
+					</div>
+				</div>
+
+
+				<div class="nav-dropdown">
+					<a href="software.html" class="nav-parent">
+						Software
+					</a>
+
+					<div class="dropdown-menu">
+						<a href="software.html#movement">Movement</a>
+						<a href="software.html#dashboard">Dashboard</a>
+					</div>
+				</div>
+
+				<div class="nav-dropdown">
+					<a href="mechanical.html" class="nav-parent">
+						Electrical
+					</a>
+
+					<div class="dropdown-menu">
+						<a href="electrical.html#components">Components</a>
+						<a href="electrical.html#firmware">Firmware</a>
+						<a href="electrical.html#wiring">Wiring</a>
+					</div>
+				</div>
+
+			</div>
+		</nav>
+
+
+
+		<!-- One -->
+		<section id="home"
+			class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+			<div class="content">
+				<h1>Soil Analyzing Snake</h1>
+				<p class="major"> Mechanical design</p>
+
+			</div>
+			<div class="image">
+				<img src="images/banner.jpg" alt="" />
+			</div>
+		</section>
+
+
+
+
+		<!-- Links -->
+		<section class="wrapper style1 align-center" id="links">
+			<div class="inner">
+				<h2>Links</h2>
+				<p>Core goals behind each design decision we made.</p>
+
+				<p>The objective of our project was to create a robot, inspired by a snake, that takes
+					measurements to evaluate soil. We designed it to be used in the context of evaluating
+					risk of forest fire. The equipped sensor is therefore a moisture sensor, and
+					measurements map to the user's dashboard so that they can see areas with dry soil.
+					We drew inspiration from snakes in terms of the three styles of motion that the
+					snake performs, all exhibited by species of snakes.
+
+				</p>
+			</div>
+		</section>
+
+		<!-- skin -->
+		<section class="wrapper style1 align-center" id="skin">
+			<div class="inner">
+				<h2>Skin</h2>
+				<p>From the beginning we knew we would need a flexible, yet water and dirt resistent outer shell for our
+					snake to protect the internal components from the elements. At first, we were going to use burlap
+					because
+					of its natural fibers and durability, but after buying burlap, we realized there were too many holes
+					and loose
+					fibers. It also seemed constricting to just have a fabric enclose our snake like a sock.
+				</p>
+				<section class="flex-grid">
+
+
+					<div class="grid-item">
+						<h3>Origami Iterations</h3>
+						<p>
+							We were able to take inspiration from origami to try and create a round shape that could
+							also stretch and compress.
+							The image to the right shows our iteration of different fold patterns, starting from a flat
+							pattern that could
+							stretch and compress into a cylindrical shape.
+						</p>
+					</div>
+					<div class="grid-item span-2">
+						<img src="images/skin-iteration.jpg" alt="Large image">
+					</div>
+
+
+				</section>
+
+				<p></p>
+				<section class="video-grid">
+					<div class="grid-text">
+						<h3>Feasibility</h3>
+						<p>
+							Once we found a fold pattern that would fit our snake, we wanted to test
+							if the skin could stretch and compress enough to allow for the snake's
+							movements. We also wanted to test attachment methods, so we put a tab on the
+							paper skin and connected to two links and watched the vertical and horizontal
+							movement. As seen in the videos, the skin was able to stretch to the snake's
+							maximum rotation and compress back into the original pattern.
+						</p>
+						
+					</div>
+
+					<div class="grid-video">
+						<video controls>
+							<source src="videos/skin test 1.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+
+
+					<div class="grid-video">
+						<video controls>
+							<source src="videos/skin test 2.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+				</section>
+
+				<p>
+
+				</p>
+
+				<section class="flex-grid">
+
+
+					<div class="grid-item span-2">
+						<h3>Making the Skin</h3>
+						<p>
+							Obviously, paper would not be a durable material for the snake's skin, 
+							so we tried two alternatives. The first was leather, which when you soak
+							in water and then let dry, becomes stiff and will hold a pattern. However, 
+							leather was thick and hard to get into the right shape. Once we had it in
+							the right shape, it wouldn't sustain the weight of the snake, it would just 
+							collapse on itself.
+						</p>
+					</div>
+					<div class="grid-item">
+						<img src="images/leather.jpg" alt="Large image">
+					</div>
+
+
+				</section>
+
+				<p></p>
+				<p>The other option we tried was taking a cotton bedsheet, drawing the fold 
+					pattern on to it, and then applying glue onto each individual triangle, 
+					leaving the fold lines unglued so it wouldn't become stiff. While time 
+					consuming, this gave us the stiff panels we needed while still being 
+					flexible and water resistant.
+				</p>
+
+				<section class="flex-grid">
+
+
+					<div class="grid-item">
+						<img src="images/cotton-skin-1.jpg" alt="Large image">
+						<p>Step 1: draw lines, paint glue</p>
+					</div>
+					<div class="grid-item">
+						<img src="images/cotton-skin-2.jpg" alt="Large image">
+						<p>Step 2: let dry and clip into place</p>
+					</div>
+					<div class="grid-item">
+						<img src="images/cotton-skin-3.jpg" alt="Large image">
+						<p>Step 3: admire</p>
+					</div>
+
+
+				</section>
+			</div>
+		</section>
+
+		<!-- head -->
+		<section class="wrapper style1 align-center" id="head">
+			<div class="inner">
+				<h2>Head</h2>
+				<p>Core goals behind each design decision we made.</p>
+
+				<p>The objective of our project was to create a robot, inspired by a snake, that takes
+					measurements to evaluate soil. We designed it to be used in the context of evaluating
+					risk of forest fire. The equipped sensor is therefore a moisture sensor, and
+					measurements map to the user's dashboard so that they can see areas with dry soil.
+					We drew inspiration from snakes in terms of the three styles of motion that the
+					snake performs, all exhibited by species of snakes.
+
+				</p>
+			</div>
+		</section>
+
+
+
+		<!-- Footer -->
+		<footer class="wrapper style1 align-center">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a>
+					</li>
+					<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+					</li>
+					<li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a>
+					</li>
+					<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				                <p>Quick Links: <a href="index.html">Home</a> | <a href="overview.html">Overview</a> | <a href="mechanical.html">Mechanical</a> | <a href="software.html">Software</a> | <a href="electrical.html">Electrical</a></p>
+
+				<p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
