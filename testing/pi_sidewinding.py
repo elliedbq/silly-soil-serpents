@@ -1,52 +1,56 @@
-# code to calculate servo angles for sidewinding motion
-
 import serial, time, math
 
 # Open serial connection to Pico
 ser = serial.Serial('/dev/ttyACM0', 115200)
 
-calibration = [12, 12, 12, 12, 12, 12] #calibration for all motors
-horizontal = [0, 1, 0, 1, 0, 1] #which motors move horizontally
+# Calibration offsets for each servo
+calibration = [0, -20, 0, -30, 0, 0]  # calibration for all motors
+horizontal = [0, 1, 0, 1, 0, 1]  # which motors move horizontally    
 num_servos = len(calibration)
-# initialize list of servo angles
-theta = [0] * num_servos # will be sent to the pico
 
-# convert radians to degrees
-def radians_to_degrees(rad):
-    return rad *180/math.pi
+# Definitions
+v_s = 0.5 #The snake's constant velocity along the curve (input, m/s)
+n = 3 #number of links (3 links that can move horizontally)
+L = 0.126 #total length, m
+r = 0.095 #radius of curve, m
+K_n = 0.5 #degree of curve
+beta = (2*K_n*math.pi)/n #phase lag
+# alpha_0 = curvature amplitude - don't know how to calculate??
+joints = list((range(num_servos))) #joints that can move horizontally
+t_run = 10 # run length (seconds)
 
-# correct offset and clamp
-def apply_calibration(angle_deg, servo_index):
-    corrected = angle_deg + calibration[servo_index]
-    return max(0, min(180, round(corrected, 2)))
+# Parameters we control
+alpha = 90.0 # winding angle parameter, change this to change the shape of the motion
+omega = 2.0 # speed parameter, change this to change speed
+gamma = -0.05 # heading parameter, changes direction (0=straight forward)
 
-# loop to calculate servos angles for sidewinding motion
-# servos 3 and 5 will be at a constant 90 degrees throughout
-# the entire run
+# Sidewinding specific parameters 
+alpha_side = 45.0   # smaller amplitude for sidewinding
+omega_side = 1.5    # slower frequency
+phase_offset = math.pi / 4 
+
+# Continuous loop
+start_time = time.perf_counter()
+theta = [0.0] * num_servos
 
 while True:
-    forward_positions = [i * 0.01 for i in range(int(0.174 / 0.01) + 1)]
-    for pos in forward_positions:
-        theta[0] = apply_calibration(radians_to_degrees(pos),0)
-        
-'''
-# Definitions
-L = 0.11; # Link length estimate meters
-# First Positions
-pt1 = [0,0]
-pt2 = [2*L*math.sin(-5*math.pi/4), 2*L*math.cos(-5*math.pi/4)]
-pt3 = [pt2(1) + 2*L*math.sin(-7*math.pi/4), pt2(2) + 2*L*math.cos(-7*math.pi/4)]
-pt4 = [pt3(1) + 2*L*math.sin(-5*math.pi/4), pt3(2) + 2*L*math.cos(-5*math.pi/4)]
-pts = [pt1; pt2; pt3; pt4]
+    current_time = time.perf_counter() - start_time
+    for joint in joints:
+        if horizontal[joint] == 0:
+            # Vertical joints: small oscillation
+            wave = alpha_side * math.sin(omega_side * current_time + joint * beta)
+            angle = round(wave, 0) + calibration[joint]
+        else:
+            # Horizontal joints: shifted sine wave
+            wave = alpha_side * math.sin(omega_side * current_time + joint * beta + phase_offset)
+            angle = round(wave, 0) + calibration[joint]
 
-# Second Positions
-pt4_2 = pt4
-pt3_2 = pt3
-pt2_2 = [pt3_2(1)-2*L, pt3_2(2)]
-pt1_2 = [0, pt2_2(2) + 2*L*math.cos(pi/4)]
-pts_2 = [pt1_2; pt2_2; pt3_2; pt4_2]
+        # Clamp to servo range
+        servo_angle = angle + 90
+        theta[joint] = max(0, min(180, servo_angle))
 
-## Back to Original Shape
-pts_3 = [pts(:,1), pts(:,2)+(pt3_2(2) - pt4_2(2))]
-'''
-
+    # Servo target angles
+    message = ",".join(map(str, theta)) + "\r\n"
+    ser.write(message.encode("utf-8"))
+    print(message)
+    time.sleep(0.05)
