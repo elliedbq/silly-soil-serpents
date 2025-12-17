@@ -1,7 +1,5 @@
+import socket
 import serial, time, math
-
-# Open serial connection to Pico
-ser = serial.Serial('/dev/ttyACM1', 115200)
 
 calibration = [0, -20, 0, -30, 0, 0] #calibration for all motors
 horizontal = [0, 1, 0, 1, 0, 1] #which motors move horizontally
@@ -28,31 +26,31 @@ gamma = -0.05 # heading parameter, changes direction (0=straight forward)
 # omega = ((2*K*n*pi)/L)*v_s
 
 
-## loop 1
 start_time = time.perf_counter()
 theta = [0.0] * num_servos
 
-while True:
-    current_time = time.perf_counter() - start_time
-    for joint in joints:
-        if horizontal[joint] == 0:
-            wave = (alpha * math.sin(omega * current_time + joint * beta))
-            angle = round(wave, 0) + calibration[joint]
-        else:
-            angle= calibration[joint]
-        # clamping
-        servo_angle = angle + 90
-        theta[joint] = max(0, min(180, servo_angle))
+HOST =  '192.168.34.119'
+PORT = 8080
 
-        #theta[joint] = max((calibration[joint]-90), min((calibration[joint]+90), round(angle, 0)))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
 
-    # Servo target angles
-    message = ",".join(map(str, theta)) + "\r\n"
-    ser.write(message.encode("utf-8"))
-    print(message)
-    time.sleep(0.05)
+    while True:
+        current_time = time.perf_counter() - start_time
+        for joint in joints:
+            if horizontal[joint] == 0:
+                wave = (alpha * math.sin(omega * current_time + joint * beta))
+                angle = round(wave, 0) + calibration[joint]
+            else:
+                angle= calibration[joint]
+            # clamping
+            servo_angle = angle + 90
+            theta[joint] = max(0, min(180, servo_angle))
 
-    # # Send once
-    # ser.write(message.encode('utf-8'))
-    # time.sleep(1)
-    # ser.close()
+            #theta[joint] = max((calibration[joint]-90), min((calibration[joint]+90), round(angle, 0)))
+
+        # Servo target angles
+        message = ",".join(map(str, theta)) + "\r\n"
+        s.sendall(message.encode())
+        print("sent:",message)
+        time.sleep(0.05)
