@@ -88,10 +88,119 @@
             </div>
         </section>
 
+<!-- process -->
+		<section class="wrapper style1 align-center" id="process">
+			<div class="inner">
+				<h2>Process</h2>
+				<p> To get from our idea to our product, we followed a process of design, testing, and iteration. We
+                    used scrum project management to delegate tasks and stay on track. As designs started working better, 
+                    we promoted them to high fidelity fabrication and implementation.
+				</p>
+
+				<section class="flex-grid">
+					<div class="grid-item">
+						<h3>Starting Off: Project Management and Ideation</h3>
+						<p>
+							The first part of the process involved setting up a Miro board to track and delegate
+                            tasks. At this point in the project, most tasks were researching electrical components 
+                            that we should purchase and making our first mechanical designs in Onshape. 
+						</p>
+					</div>
+					<div class="grid-item">
+						<img src="images/sprint_board_1.jpg" alt="Large image">
+                        <ul class="actions stacked">
+						    <li><a href="https://miro.com/app/board/uXjVJzHVwos=/" class="button">View our Miro Board</a></li>
+					    </ul>
+					</div>
+                    <div class="grid-item">
+						<img src="images/early_u_links.png" alt="Large image">
+					</div>
+				</section>
+
+				<p></p>
+				<section class="video-grid">
+					<div class="grid-text">
+						<h3>Fabrication and Testing</h3>
+						<p>
+							Once we had made decisions about what electrical components to purchase and use,
+                            specifically the servo motors and the sensor, we designed and 3D printed our first
+                            iteration. The first iteration helped us identify what needed to be added to the 
+                            mechanical design, such as holes for wiring, and what we could do to improve electrical
+                            performance, which in this case was using stronger motors.
+						</p>
+					</div>
+
+                    <div class="grid-video">
+						<video controls>
+							<source src="images/first_snake.MP4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+				</section>
+
+				<p>
+
+				</p>
+
+				<section class="flex-grid">
+					<div class="grid-item span-2">
+						<h3>Redesign and Sensor Calibration</h3>
+						<p>
+							After testing out what worked and did not work with our first iteration, we started
+                            designing the next. We wanted to try using smaller servo motors and making the robot
+                            lighter overall, however we found that the smaller motors did not have high enough 
+                            torque to accomplish the movements we desired. We started designing more mechanisms,
+                            such as the "head" and "tail" of the snake, and the sensor-lowering mechanism. We also 
+                            starting testing and calibrating our soil moisture sensor in different levels of wet soil.
+						</p>
+					</div>
+					<div class="grid-item">
+						<img src="images/small_motor_u_links.jpg" alt="Large image">
+					</div>
+                    <div class="grid-item">
+						<img src="images/head_design.jpg" alt="Large image">
+					</div>
+                    <div class="grid-item">
+						<img src="images/sensor_calibration.jpg" alt="Large image">
+					</div>
+                    <div class= "grid-item">
+                        <img src="images/sensor_calibration_pic.jpeg">
+                    </div>
+				</section>
+
+				<p></p>
+                <h3>Final Assembly and Integration</h3>
+				<p>We came across several challenges in this project, and most of them came
+                    at this integration stage. Specifically, integrating electrical hardware with
+                    software was difficult for the moisture sensor, camera, and Pico boards. Mechanically,
+                    we had some trouble with running wires for the servo motors through the snake body, 
+                    because tangling caused limited mobility. We solved this problem by creating a wire 
+                    harness, which also improved organization.
+				</p>
+
+				<section class="flex-grid">
 
 
+					<div class="grid-item">
+						<img src="images/wire_harness.jpg" alt="Large image">
+						<p>Wire Harness</p>
+					</div>
+					<div class="grid-item">
+						<img src="images/Pico_hell.jpg" alt="Large image">
+						<p>Trying to connect to our Pico boards</p>
+					</div>
+					<div class="grid-item">
+						<img src="images/Pico_hell.jpg" alt="Large image">
+						<p>Another Integration Photo</p>
+					</div>
 
-        <!-- System Diagram -->
+
+				</section>
+			</div>
+		</section>
+
+
+<!-- Energy and Data Flow Diagram -->
         <section class="wrapper style1 align-center" id="objectives">
             <div class="inner">
                 <h2>System Diagram</h2>
@@ -108,19 +217,15 @@
             </div>
         </section>
 
-        <!-- Energy and Data Flow Diagram -->
+        <!-- System Diagram -->
         <section class="wrapper style1 align-center" id="objectives">
             <div class="inner">
                 <h2>Energy and Data Flow Diagram</h2>
-                <p>Core goals behind each design decision we made.</p>
-                <span class="image fit"><img src="images/system-diagram.png" alt="" /></span>
-                <p>The objective of our project was to create a robot, inspired by a snake, that takes
-                    measurements to evaluate soil. We designed it to be used in the context of evaluating
-                    risk of forest fire. The equipped sensor is therefore a moisture sensor, and
-                    measurements map to the user's dashboard so that they can see areas with dry soil.
-                    We drew inspiration from snakes in terms of the three styles of motion that the
-                    snake performs, all exhibited by species of snakes.
-
+                <span class="image fit"><img src="images/energy_diagram.jpg" alt="" /></span>
+                <p>Energy and data flow through several paths in our integrated system. 
+                One challenge that we faced with integration is the weight of the power source, 
+                which in our case was a NiMh battery. We found that it weighed the tail down, 
+                and therefore shaped decisions about motor power and mechanical design around this.
                 </p>
             </div>
         </section>

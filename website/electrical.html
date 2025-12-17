@@ -98,7 +98,40 @@
             </div>
         </section>
 
-		<!-- Firmware -->
+<!-- Core Components -->
+        <section class="wrapper style1 align-center" id="wiring">
+            <div class="inner">
+                <h2>Core Components</h2>
+                <p>Core goals behind each design decision we made.</p>
+                <span class="image fit"><img src="images/system-diagram.png" alt="" /></span>
+            </div>
+        </section>
+		<section class="flex-grid">
+
+				<div class="grid-item">
+					<img src="images/servo_component.jpg" alt="Large image">
+					<p>Servo Motor</p>
+					<p>We used six servo motors to control the joint motion of the snake. alternated positioning of the servos on each link, so that the snake has both vertical and horizontal range of motion.</p>
+				</div>
+				<div class="grid-item">
+					<img src="images/pico_component.jpg" alt="Large image">
+					<p>Raspberry Pi Pico W</p>
+					<p>We used four Raspberry Pi Pico boards to control the angle of the servo motors and to recieve data from the camera, sensor, and IMUs.</p>
+				</div>
+				<div class="grid-item">
+					<img src="images/sensor_component.jpg" alt="Large image">
+					<p>STEMMA Soil Moisture Sensor</p>
+					<p>We used the Adafruit STEMMA soil moisture sensor to take measurements of soil moisture, based off of capacitance measured.</p>
+				</div>
+				<div class="grid-item">
+					<img src="images/arducam_component.jpg" alt="Large image">
+					<p>Arducam for Raspberry Pi Pico Camera</p>
+					<p>We used a camera that connects to our Pico boards to communiate a visual to the user and aids them in controlling the snake.</p>
+				</div>
+
+			</section>
+
+			<!-- Firmware -->
         <section class="wrapper style1 align-center" id="firmware">
             <div class="inner">
                 <h2>Firmware</h2>
@@ -123,16 +156,6 @@
 
 
 				</p>
-                
-            </div>
-        </section>
-
-<!-- Circuit Diagram -->
-        <section class="wrapper style1 align-center" id="wiring">
-            <div class="inner">
-                <h2>Circuit Diagram</h2>
-                <p>Core goals behind each design decision we made.</p>
-                <span class="image fit"><img src="images/system-diagram.png" alt="" /></span>
                 
             </div>
         </section>
