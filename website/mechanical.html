@@ -93,15 +93,21 @@
 		<section class="wrapper style1 align-center" id="links">
 			<div class="inner">
 				<h2>Links</h2>
-				<p>Core goals behind each design decision we made.</p>
+				<p>When we first started this project, we looked at multiple other people's designs to 
+					determine what type of joint might work best for our snake. Some designs used
+					servos that all moved in the same direction, and had wheels on the bottom.
+					This would allow for flat slithering movement, but we wanted our snake to be able to move up and 
+					down as well as side to side. The wheels also posed a problem for traversing in terrain 
+					such as dirt, which was a key requirement for our design. We also saw designs that used pistons 
+					to contract and expand the sides of the snake which would give it a slithering movement. 
+					However, this was complicated and would be hard to code. 
+				</p>
 
-				<p>The objective of our project was to create a robot, inspired by a snake, that takes
-					measurements to evaluate soil. We designed it to be used in the context of evaluating
-					risk of forest fire. The equipped sensor is therefore a moisture sensor, and
-					measurements map to the user's dashboard so that they can see areas with dry soil.
-					We drew inspiration from snakes in terms of the three styles of motion that the
-					snake performs, all exhibited by species of snakes.
-
+				<p>Ultimately we decided to go with a design that would give the servos two degrees of motion, 
+					alternating between vertical and horizontal movement. This would allow for movement in 
+					different terrains and would be easier to code. We decided to 3d print u-links that each
+					had a motor mount for the servo and would connect to the next link. This would allow us to 
+					add more joints as needed.
 				</p>
 			</div>
 		</section>

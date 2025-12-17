@@ -7252,6 +7252,13 @@ input, select, textarea {
 
 	.gallery article .image {
 		background-color: rgba(0, 0, 0, 0.125);
+    	aspect-ratio: 4 / 3;
+    	overflow: hidden;
+	}
+
+	.gallery article .image img {
+    	height: 100%;
+    	object-fit: cover;
 	}
 
 /* Wrapper (style1) */
