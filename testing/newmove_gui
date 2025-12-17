@@ -1,0 +1,74 @@
+from flask import Flask, render_template_string
+import serial, time, math, threading
+
+# Serial connection to Pico
+ser = serial.Serial('/dev/ttyACM1', 115200)
+
+# Motion parameters
+v_s = 0.5 #The snake's constant velocity along the curve (input, m/s)
+n = 3 #number of links (3 links that can move horizontally)
+L = 0.126 #total length, m
+r = 0.095 #radius of curve, m
+K_n = 0.5 #degree of curve
+alpha = 60.0
+omega = 2.0
+beta = (2*K_n*math.pi)/n #phase lag
+num_servos = 6
+calibration = [0, -20, 0, -30, 0, 0] #calibration for all motors
+horizontal = [0, 1, 0, 1, 0, 1]
+
+app = Flask(__name__)
+running = False
+def motion_loop():
+    global running
+    start_time = time.perf_counter()
+    while running:
+        current_time = time.perf_counter() - start_time
+        theta = []
+        for joint in range(num_servos):
+            if horizontal[joint] == 0:
+                wave = alpha * math.sin(omega * current_time + joint * beta)
+                angle = round(wave, 0) + calibration[joint]
+            else:
+                angle = calibration[joint]
+            servo_angle = angle + 90
+            theta.append(max(0, min(180, servo_angle)))
+        message = ",".join(map(str, theta)) + "\r\n"
+        ser.write(message.encode("utf-8"))
+        time.sleep(0.05)
+
+@app.route("/")
+def index():
+    return render_template_string("""
+        <h1>Snake Dashboard</h1>
+        <p>hold 'W' to serpentine :p</p>
+        <script>
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'w') {
+                fetch('/start_forward', {method: 'POST'});
+            }
+        });
+        document.addEventListener('keyup', function(e) {
+            if (e.key === 'w') {
+                fetch('/stop', {method: 'POST'});
+            }
+        });
+        </script>
+    """)
+
+@app.route("/start_forward", methods=["POST"])
+def start_forward():
+    global running
+    if not running:
+        running = True
+        threading.Thread(target=motion_loop, daemon=True).start()
+    return "Started forward motion"
+
+@app.route("/stop", methods=["POST"])
+def stop():
+    global running
+    running = False
+    return "Stopped motion"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000)
