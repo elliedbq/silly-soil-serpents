@@ -1,7 +1,7 @@
 import serial, time, math
 
 # Open serial connection to Pico
-ser = serial.Serial('/dev/ttyACM0', 115200)
+ser = serial.Serial('/dev/ttyACM1', 115200)
 
 # Calibration offsets for each servo
 calibration = [0, -20, 0, -30, 0, 0]  # calibration for all motors

@@ -2,6 +2,7 @@ from flask import Flask, render_template_string
 import serial, time, math, threading
 
 # Serial connection to Pico
+
 ser = serial.Serial('/dev/ttyACM0', 115200)
 
 # serpentine parameters
@@ -12,7 +13,6 @@ r = 0.095 #radius of curve, m
 K_n = 0.5 #degree of curve
 alpha = 60.0
 omega = 2.0
-gamma = 0
 beta = (2*K_n*math.pi)/n #phase lag
 num_servos = 6
 calibration = [0, -20, 0, -30, 0, 0] #calibration for all motors
@@ -36,7 +36,7 @@ def motion_loop():
         theta = []
         for joint in range(num_servos):
             if horizontal[joint] == 0:
-                wave = alpha * math.sin(omega * current_time + joint * beta) + gamma
+                wave = alpha * math.sin(omega * current_time + joint * beta)
                 angle = round(wave, 0) + calibration[joint]
             else:
                 angle = calibration[joint]
@@ -225,4 +225,4 @@ def stop():
     return "Stopped motion"
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=4000)
