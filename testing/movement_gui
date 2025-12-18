@@ -2,9 +2,10 @@ from flask import Flask, render_template_string
 import serial, time, math, threading
 
 # Serial connection to Pico
+
 ser = serial.Serial('/dev/ttyACM0', 115200)
 
-# Motion parameters
+# serpentine parameters
 v_s = 0.5 #The snake's constant velocity along the curve (input, m/s)
 n = 3 #number of links (3 links that can move horizontally)
 L = 0.126 #total length, m
@@ -17,8 +18,16 @@ num_servos = 6
 calibration = [0, -20, 0, -30, 0, 0] #calibration for all motors
 horizontal = [0, 1, 0, 1, 0, 1]
 
+# sidewinding parameters
+alpha_side = 45.0
+omega_side = 1.5
+phase_offset = math.pi/4
+
 app = Flask(__name__)
 running = False
+current_gait = None
+
+# serpentine loop
 def motion_loop():
     global running
     start_time = time.perf_counter()
@@ -37,32 +46,177 @@ def motion_loop():
         ser.write(message.encode("utf-8"))
         time.sleep(0.05)
 
+# sidewinding loop
+def sidewinding_loop():
+    global running #current_gait
+    start_time = time.perf_counter()
+    while running: #and current_gait == "sidewinding":
+        current_time = time.perf_counter() - start_time
+
+        # Servo 1: vertical, oscillates 0–10°
+        s1 = 5 + 5 * math.sin(2 * math.pi * current_time)   # center at 5°, amplitude 5°
+
+        # Servo 2: horizontal, oscillates 0–45°
+        s2 = 22.5 + 22.5 * math.sin(2 * math.pi * current_time + math.pi/2)
+
+        # Servo 3: stationary
+        s3 = 0
+
+        # Servo 4: horizontal, oscillates 0–36°
+        s4 = 18 + 18 * math.sin(2 * math.pi * current_time + math.pi/4)
+
+        # Servo 5: vertical
+        s5 =  5 + 5 * math.sin(2 * math.pi * current_time) 
+
+        # Clamp values to [0,180]
+        angles = [max(0, min(180, round(a))) for a in [s1, s2, s3, s4, s5]]
+        # Send to Pico
+        message = ",".join(map(str, angles)) + "\r\n"
+        ser.write(message.encode("utf-8"))
+        print(message)
+        time.sleep(0.05)
+     
 @app.route("/")
+def index():
+    return render_template_string("""
+    <html>
+    <head>
+    <!-- Load Press Start 2P and Roboto from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+        <title>Snake Dashboard</title>
+        <style>
+            body {
+                background-color: black;
+                color: white;
+                font-family: 'Roboto', sans-serif; /* Roboto for body text */
+                text-align: center;
+            }
+            h1 {
+                font-family: 'Press Start 2P', cursive; /* Retro arcade header */
+                background-color: green;
+                padding: 15px;
+                margin: 0;
+                letter-spacing: 2px; /* optional: adds spacing for retro look */
+                text-transform: uppercase; /* optional: makes it all caps */
+            }
+            .instructions {
+                margin: 20px auto;
+                padding: 15px;
+                border: 2px solid green;
+                border-radius: 10px;
+                width: 300px;
+                background-color: #111;
+            }
+            .controls {
+                margin-top: 30px;
+            }
+            .btn {
+                background-color: green;
+                color: black;
+                font-size: 1.2em;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                padding: 15px 30px;
+                margin: 10px;
+                font-family: 'Roboto', sans-serif; /* Buttons use Roboto too */
+            }
+            .btn:hover {
+                background-color: limegreen;
+            }
+            .status {
+                margin-top: 20px;
+                font-size: 1.2em;
+                color: lime;
+                font-family: 'Roboto', sans-serif; /* Status text in Roboto */
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Snake Dashboard</h1>
+        <div class="instructions">
+            <p>Hold <b>W</b> to serpentine 🐍</p>
+            <p>Hold <b>S</b> to sidewind 🐍</p>
+        </div>
+        <div class="controls">
+            <button class="btn" onclick="startGait('serpentine')">Start Serpentine</button>
+            <button class="btn" onclick="startGait('sidewinding')">Start Sidewinding</button>
+            <button class="btn" onclick="stopMotion()">Stop</button>
+        </div>
+        <div class="status" id="status">Motion: stopped</div>
+
+        <script>
+            function startGait(gait) {
+                let route = '';
+                if (gait === 'serpentine') route = '/start_forward';
+                else if (gait === 'sidewinding') route = '/start_sidewinding';
+                fetch(route, {method: 'POST'});
+                document.getElementById('status').innerText = "Motion: " + gait;
+            }
+
+            function stopMotion() {
+                fetch('/stop', {method: 'POST'});
+                document.getElementById('status').innerText = "Motion: stopped";
+            }
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'w') startGait('serpentine');
+                if (e.key === 's') startGait('sidewinding');
+            });
+            document.addEventListener('keyup', function(e) {
+                if (e.key === 'w' || e.key === 's') stopMotion();
+            });
+        </script>
+    </body>
+    </html>
+    """)
+
+'''
 def index():
     return render_template_string("""
         <h1>Snake Dashboard</h1>
         <p>hold 'W' to serpentine :p</p>
+        <p>hold 'S' to sidewind :p</p>
         <script>
         document.addEventListener('keydown', function(e) {
             if (e.key === 'w') {
                 fetch('/start_forward', {method: 'POST'});
+            }
+            if (e.key === 's') {
+                fetch('/start_sidewinding', {method: 'POST'});
             }
         });
         document.addEventListener('keyup', function(e) {
             if (e.key === 'w') {
                 fetch('/stop', {method: 'POST'});
             }
+            if (e.key === 's') {
+                fetch('/stop', {method: 'POST'});
+            }
         });
         </script>
     """)
+'''
 
 @app.route("/start_forward", methods=["POST"])
 def start_forward():
-    global running
+    global running, motion_thread
     if not running:
         running = True
-        threading.Thread(target=motion_loop, daemon=True).start()
-    return "Started forward motion"
+        motion_thread = threading.Thread(target=motion_loop, daemon=True)
+        motion_thread.start()
+    return "Started serpy motion"
+
+@app.route("/start_sidewinding", methods=["POST"])
+def start_sidewinding():
+    global running, current_gait
+    if not running:
+        running = True
+        current_gait = threading.Thread(target=sidewinding_loop, daemon=True)
+        current_gait.start()
+    return "Started sidewinding motion"
 
 @app.route("/stop", methods=["POST"])
 def stop():
@@ -71,4 +225,4 @@ def stop():
     return "Stopped motion"
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=4000)

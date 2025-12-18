@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snake Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Roboto, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            background-color: green;
+            padding: 15px;
+            margin: 0;
+        }
+        .instructions {
+            margin: 20px auto;
+            padding: 15px;
+            border: 2px solid green;
+            border-radius: 10px;
+            width: 300px;
+            background-color: #111;
+        }
+        .btn {
+            background-color: green;
+            color: black;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .btn:hover { background-color: limegreen; }
+        .status { margin-top: 20px; color: lime; }
+    </style>
+</head>
+
+<body>
+    <h1>Snake Dashboard</h1>
+
+    <div class="instructions">
+        <p>Hold <b>W</b> to serpentine 🐍</p>
+        <p>Hold <b>S</b> to sidewind 🐍</p>
+    </div>
+
+    <button class="btn" onclick="startGait('serpentine')">Start Serpentine</button>
+    <button class="btn" onclick="startGait('sidewinding')">Start Sidewinding</button>
+    <button class="btn" onclick="stopMotion()">Stop</button>
+    <button class="btn" onclick="lowerSensor()">Lower Sensor</button>
+    <button class="btn" onclick="raiseSensor()">Raise Sensor</button>
+
+    <div class="status" id="status">Motion: stopped</div>
+
+    <script>
+        function startGait(gait) {
+            let route = gait === 'serpentine'
+                ? '/start_serpentine'
+                : '/start_sidewinding';
+
+            fetch(route, { method: 'POST' });
+            document.getElementById('status').innerText = "Motion: " + gait;
+        }
+
+        function stopMotion() {
+            fetch('/stop', { method: 'POST' });
+            document.getElementById('status').innerText = "Motion: stopped";
+        }
+
+        function lowerSensor() {
+            fetch('/lowerSensor', { method: 'POST' });
+            document.getElementById('status').innerText = "Sensor: lowered";
+        }
+
+        function raiseSensor() {
+            fetch('/raiseSensor', { method: 'POST' });
+            document.getElementById('status').innerText = "Sensor: raised";
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'w') startGait('serpentine');
+            if (e.key === 's') startGait('sidewinding');
+        });
+
+        document.addEventListener('keyup', e => {
+            if (e.key === 'w' || e.key === 's') stopMotion();
+        });
+    </script>
+</body>
+</html>
