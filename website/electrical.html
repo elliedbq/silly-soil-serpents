@@ -67,6 +67,13 @@
 						<a href="electrical.html#wiring">Components</a>
 					</div>
 				</div>
+				<div class="nav-dropdown">
+					<a href="software.html" class="nav-parent">
+						About
+					</a>
+
+					
+				</div>
 
 			</div>
 		</nav>
@@ -75,95 +82,104 @@
 
 		<!-- One -->
 		<section id="home"
-			class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+			class="banner style2 orient-right content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
 			<div class="content">
-				<h1>Soil Analyzing Snake</h1>
-				<p class="major"> Electrical Design</p>
-				<ul class="actions stacked">
-					<li><a href="#first" class="button big wide smooth-scroll-middle">Get Started</a></li>
-				</ul>
+				<h1>Electrical Design</h1>
+
+
 			</div>
 			<div class="image">
-				<img src="images/banner.jpg" alt="" />
+				<img src="images/software.jpg" alt="" />
 			</div>
 		</section>
 
-<!-- Components -->
-        <section class="wrapper style1 align-center" id="components">
-            <div class="inner">
-                <h2>Circuit Diagram</h2>
-                <p>Electrical components that powered the snakes motion, soil sensor, camera, and location tracking.</p>
-                <span class="image fit"><img src="images/circuit_diagram.png" alt="" /></span>
-                
-            </div>
-        </section>
+		<!-- Components -->
+		<section class="wrapper style1 align-center" id="components">
+			<div class="inner">
+				<h2>Circuit Diagram</h2>
+				<p>Electrical components that powered the snakes motion, soil sensor, camera, and location tracking.</p>
+				<span class="image fit"><img src="images/circuit_diagram.png" alt="" /></span>
 
-<!-- Core Components -->
-        <section class="wrapper style1 align-center" id="wiring">
-            <div class="inner">
-                <h2>Core Components</h2>
-                <p>Core goals behind each design decision we made.</p>
-                <span class="image fit"><img src="images/system-diagram.png" alt="" /></span>
-            </div>
-        </section>
-		<section class="flex-grid">
+			</div>
+		</section>
+
+		<!-- Core Components -->
+		<section class="wrapper style1 align-center" id="wiring">
+			<div class="inner">
+				<h2>Core Components</h2>
+				<p>Core goals behind each design decision we made.</p>
+				<span class="image fit"><img src="images/system-diagram.png" alt="" /></span>
+			
+
+			<section class="flex-grid">
 
 				<div class="grid-item">
 					<img src="images/servo_component.jpg" alt="Large image">
 					<p>Servo Motor</p>
-					<p>We used six servo motors to control the joint motion of the snake. alternated positioning of the servos on each link, so that the snake has both vertical and horizontal range of motion.</p>
+					<p>We used six servo motors to control the joint motion of the snake. alternated positioning of the
+						servos on each link, so that the snake has both vertical and horizontal range of motion.</p>
 				</div>
 				<div class="grid-item">
 					<img src="images/pico_component.jpg" alt="Large image">
 					<p>Raspberry Pi Pico W</p>
-					<p>We used four Raspberry Pi Pico boards to control the angle of the servo motors and to recieve data from the camera, sensor, and IMUs.</p>
+					<p>We used four Raspberry Pi Pico boards to control the angle of the servo motors and to recieve
+						data from the camera, sensor, and IMUs.</p>
 				</div>
 				<div class="grid-item">
 					<img src="images/sensor_component.jpg" alt="Large image">
 					<p>STEMMA Soil Moisture Sensor</p>
-					<p>We used the Adafruit STEMMA soil moisture sensor to take measurements of soil moisture, based off of capacitance measured.</p>
+					<p>We used the Adafruit STEMMA soil moisture sensor to take measurements of soil moisture, based off
+						of capacitance measured.</p>
 				</div>
 				<div class="grid-item">
 					<img src="images/arducam_component.jpg" alt="Large image">
 					<p>Arducam for Raspberry Pi Pico Camera</p>
-					<p>We used a camera that connects to our Pico boards to communiate a visual to the user and aids them in controlling the snake.</p>
+					<p>We used a camera that connects to our Pico boards to communicate a visual to the user and aids
+						them in controlling the snake.</p>
 				</div>
-
+				<div class="grid-item span-2">
+					<img src="images/raspi.png" alt="Large image">
+					<p>Raspberry Pi 4</p>
+					<p>We used a Raspi as a ground station - mostly because we couldn't get our computers to connect to the picos.</p>
+				</div>
+</div>
+</div>
 			</section>
+		</section>
 
-			<!-- Firmware -->
-        <section class="wrapper style1 align-center" id="firmware">
-            <div class="inner">
-                <h2>Hardware</h2>
-                <p>
-			
-					We utilized a Raspberry Pi as a ground station to visualize the soil and movement dashboards. 
-					The Raspberry Pi communicated with our four Pico W microcontrollers over wifi. Each pico 
+		<!-- Firmware -->
+		<section class="wrapper style1 align-center" id="firmware">
+			<div class="inner">
+				<h2>Hardware Explanation</h2>
+				<p>
+
+					We utilized a Raspberry Pi as a ground station to visualize the soil and movement dashboards.
+					The Raspberry Pi communicated with our four Pico W microcontrollers over wifi. Each pico
 					was assigned a different task.
-					One pico controlled the motors, 
+					One pico controlled the motors,
 					one collected serial data from the soil sensor,
 					one sent serial data back from the camera, and
-					one collected location data from the IMU. 
-					
+					one collected location data from the IMU.
+
 					Our IMU Pico went unused as we invested the majority of our time on the movement,
 					soil data capturing, and camera vision components.
-					
+
 
 				</p>
-                
-            </div>
-        </section>
 
-<!-- Acknowledgements -->
-        <section class="wrapper style1 align-center" id="ack">
-            <div class="inner">
-                <h2>Acknowledgements</h2>
-                <p> A special thank you to Oscar Bao for helping us troubleshoot electrical issues. </p>
-                <span class="image fit"><img src="images/oscar-working.jpeg" alt="" /></span>
-                
-            </div>
-        </section>
-		
+			</div>
+		</section>
+
+		<!-- Acknowledgements -->
+		<section class="wrapper style1 align-center" id="ack">
+			<div class="inner">
+				<h2>Acknowledgements</h2>
+				<p> A special thank you to Oscar Bao for helping us troubleshoot electrical issues. </p>
+				<span class="image fit"><img src="images/oscar-working.jpeg" alt="" /></span>
+
+			</div>
+		</section>
+
 
 		<!-- Footer -->
 		<footer class="wrapper style1 align-center">
@@ -178,7 +194,9 @@
 					</li>
 					<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
-				                <p>Quick Links: <a href="index.html">Home</a> | <a href="overview.html">Overview</a> | <a href="mechanical.html">Mechanical</a> | <a href="software.html">Software</a> | <a href="electrical.html">Electrical</a></p>
+				<p>Quick Links: <a href="index.html">Home</a> | <a href="overview.html">Overview</a> | <a
+						href="mechanical.html">Mechanical</a> | <a href="software.html">Software</a> | <a
+						href="electrical.html">Electrical</a></p>
 
 				<p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 			</div>

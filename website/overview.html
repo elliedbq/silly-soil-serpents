@@ -57,7 +57,7 @@
 				</div>
 
 				<div class="nav-dropdown">
-					<a href="mechanical.html" class="nav-parent">
+					<a href="electrical.html" class="nav-parent">
 						Electrical
 					</a>
 
@@ -67,6 +67,13 @@
 						<a href="electrical.html#wiring">Components</a>
 					</div>
 				</div>
+				<div class="nav-dropdown">
+					<a href="about.html" class="nav-parent">
+						About
+					</a>
+
+					
+				</div>
 
 			</div>
 		</nav>
@@ -75,13 +82,10 @@
 
         <!-- One -->
         <section id="home"
-            class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+            class="banner style2 orient-right content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
             <div class="content">
-                <h1>Soil Analyzing Snake</h1>
-                <p class="major">Overview of the project.</p>
-                <ul class="actions stacked">
-                    <li><a href="#first" class="button big wide smooth-scroll-middle">Get Started</a></li>
-                </ul>
+                <h1>Project Overview</h1>
+                
             </div>
             <div class="image">
                 <img src="images/snake_head_on.jpeg" alt="" />
@@ -89,9 +93,9 @@
         </section>
 
 <!-- process -->
-		<section class="wrapper style1 align-center" id="process">
+		<section class="wrapper style1 align-left" id="process">
 			<div class="inner">
-				<h2>Process</h2>
+				<h2 class="align-center">Process</h2>
 				<p> To get from our idea to our product, we followed a process of design, testing, and iteration. We
                     used scrum project management to delegate tasks and stay on track. As designs started working better, 
                     we promoted them to high fidelity fabrication and implementation.
@@ -120,13 +124,14 @@
 				<p></p>
 				<section class="video-grid">
 					<div class="grid-text">
-						<h3>Fabrication and Testing</h3>
+						<h3>Sprint 1</h3>
 						<p>
 							Once we had made decisions about what electrical components to purchase and use,
                             specifically the servo motors and the sensor, we designed and 3D printed our first
                             iteration. The first iteration helped us identify what needed to be added to the 
                             mechanical design, such as holes for wiring, and what we could do to improve electrical
-                            performance, which in this case was using stronger motors.
+                            performance, which in this case was using stronger motors. We also managed to get a working
+                            prototype of the snake moving in an inchworm motion using an Arduino.
 						</p>
 					</div>
 
@@ -144,7 +149,7 @@
 
 				<section class="flex-grid">
 					<div class="grid-item span-2">
-						<h3>Redesign and Sensor Calibration</h3>
+						<h3>Sprint 2</h3>
 						<p>
 							After testing out what worked and did not work with our first iteration, we started
                             designing the next. We wanted to try using smaller servo motors and making the robot
@@ -169,7 +174,7 @@
 				</section>
 
 				<p></p>
-                <h3>Final Assembly and Integration</h3>
+                <h3>Sprint 3</h3>
 				<p>We came across several challenges in this project, and most of them came
                     at this integration stage. Specifically, integrating electrical hardware with
                     software was difficult for the moisture sensor, camera, and Pico boards. Mechanically,
@@ -206,12 +211,7 @@
                 <h2>System Diagram</h2>
                 <p>Core goals behind each design decision we made.</p>
                 <span class="image fit"><img src="images/System Diagram.jpg" alt="" /></span>
-                <p>The objective of our project was to create a robot, inspired by a snake, that takes
-                    measurements to evaluate soil. We designed it to be used in the context of evaluating
-                    risk of forest fire. The equipped sensor is therefore a moisture sensor, and
-                    measurements map to the user's dashboard so that they can see areas with dry soil.
-                    We drew inspiration from snakes in terms of the three styles of motion that the
-                    snake performs, all exhibited by species of snakes.
+                <p>Diagram of systems. How everything integrates.
 
                 </p>
             </div>
@@ -323,19 +323,55 @@
                                 <td>McMaster</td>
                                 <td>5.00</td>
                             </tr>
+                            <tr>
+                                <td>Cotton Fabric*</td>
+                                <td>Skin prototyping and final</td>
+                                <td>Library</td>
+                                <td>8.00</td>
+                            </tr>
+                            <tr>
+                                <td>Elmer's Glue*</td>
+                                <td>Skin prototyping and final</td>
+                                <td>Library</td>
+                                <td>16.00</td>
+                            </tr>
+                            <tr>
+                                <td>PLA*</td>
+                                <td>Fillament for modules</td>
+                                <td>Shop</td>
+                                <td>24.00</td>
+                            </tr>
+                            <tr>
+                                <td>Euca Board*</td>
+                                <td>head</td>
+                                <td>Shop</td>
+                                <td>2.90</td>
+                            </tr>
+                            <tr>
+                                <td>USBA to micro USB cable (x2)*</td>
+                                <td>pico and pi connection</td>
+                                <td>Home</td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <td>MG996r Servos*</td>
+                                <td>For joints</td>
+                                <td>Pie Room</td>
+                                <td>25.50</td>
+                            </tr>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td colspan="1"></td>
                                 <td colspan="1"></td>
                                 <td>Total Purchased (excluding found/borrowed)</td>
-                                <td>100.00</td>
+                                <td>194.36</td>
                             </tr>
                             <tr>
                                 <td colspan="1"></td>
                                 <td colspan="1"></td>
                                 <td>Grand Total</td>
-                                <td>100.00</td>
+                                <td>299.26</td>
                             </tr>
                         </tfoot>
                     </table>
