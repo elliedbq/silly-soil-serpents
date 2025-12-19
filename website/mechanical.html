@@ -75,14 +75,13 @@
 
 		<!-- One -->
 		<section id="home"
-			class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+			class="banner style2 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
 			<div class="content">
-				<h1>Soil Analyzing Snake</h1>
-				<p class="major"> Mechanical design</p>
+				<h1>Mechanical Design</h1>
 
 			</div>
 			<div class="image">
-				<img src="images/banner.jpg" alt="" />
+				<img src="images/yum_skin.jpg" alt="" />
 			</div>
 		</section>
 
@@ -90,32 +89,80 @@
 
 
 		<!-- Links -->
-		<section class="wrapper style1 align-center" id="links">
+		<section class="wrapper style1 align-left" id="links">
 			<div class="inner">
-				<h2>Links</h2>
-				<p>When we first started this project, we looked at multiple other people's designs to 
+				<h2 class="align-center">Links</h2>
+				<p>When we first started this project, we looked at multiple other people's designs to
 					determine what type of joint might work best for our snake. Some designs used
 					servos that all moved in the same direction, and had wheels on the bottom.
-					This would allow for flat slithering movement, but we wanted our snake to be able to move up and 
-					down as well as side to side. The wheels also posed a problem for traversing in terrain 
-					such as dirt, which was a key requirement for our design. We also saw designs that used pistons 
-					to contract and expand the sides of the snake which would give it a slithering movement. 
-					However, this was complicated and would be hard to code. 
+					This would allow for flat slithering movement, but we wanted our snake to be able to move up and
+					down as well as side to side. The wheels also posed a problem for traversing in terrain
+					such as dirt, which was a key requirement for our design. We also saw designs that used pistons
+					to contract and expand the sides of the snake which would give it a slithering movement.
+					However, this was complicated and would be hard to code.
 				</p>
 
-				<p>Ultimately we decided to go with a design that would give the servos two degrees of motion, 
-					alternating between vertical and horizontal movement. This would allow for movement in 
-					different terrains and would be easier to code. We decided to 3d print u-links that each
-					had a motor mount for the servo and would connect to the next link. This would allow us to 
-					add more joints as needed.
-				</p>
+
+
+				<section class="flex-grid">
+
+
+					<div class="grid-item span-2">
+
+
+						<p>Ultimately we decided to go with a design that would give the servos two degrees of motion,
+							alternating between vertical and horizontal movement. This would allow for movement in
+							different terrains and would be easier to code. We decided to 3d print u-links that each
+							had a motor mount for the servo and would connect to the next link. This would allow us to
+							add more joints as needed.
+						</p>
+						<p>Our first CAD of the u-link is a simple block cad, trying to make sure dimensions were right
+							and
+							everything would fit. The next one that we printed was just big enough for the servos to
+							fit.
+							However in our second sprint, we decide to extend the length of the u-link so that it could
+							fit all the components - especially our battery - on to the snake because one of our goals
+							was having the snake move wirelessly. Extending the snake also made it look much larger,
+							which would help the snake move farther.
+						</p>
+					</div>
+					<div class="grid-item">
+						<img src="images/early_u_links.png" alt="Large image">
+					</div>
+
+
+
+				</section>
+
+				<section class="flex-grid">
+
+
+					<div class="grid-item">
+
+
+						<p>Because we wanted the snake to operate wirelessly and we knew that the wires would also need
+							a lot of space to move around, we didn't want any of our components to get tangled
+							with the wires. Thus, we made mounts for the battery and had pins to keep the servos in
+							place.
+						</p>
+						</div>
+						<div class="grid-item">
+							<img src="images/link_explanation.jpg" alt="Large image">
+						</div>
+					
+					<div class="grid-item">
+						<img src="images/batterymount.jpg" alt="Large image">
+					</div>
+
+				</section>
+
 			</div>
 		</section>
 
 		<!-- skin -->
-		<section class="wrapper style1 align-center" id="skin">
+		<section class="wrapper style1 align-left" id="skin">
 			<div class="inner">
-				<h2>Skin</h2>
+				<h2 class="align-center">Skin</h2>
 				<p>From the beginning we knew we would need a flexible, yet water and dirt resistent outer shell for our
 					snake to protect the internal components from the elements. At first, we were going to use burlap
 					because
@@ -127,7 +174,7 @@
 
 
 					<div class="grid-item">
-						<h3>Origami Iterations</h3>
+						<h3 class="align-center">Origami Iterations</h3>
 						<p>
 							We were able to take inspiration from origami to try and create a round shape that could
 							also stretch and compress.
@@ -146,7 +193,7 @@
 				<p></p>
 				<section class="video-grid">
 					<div class="grid-text">
-						<h3>Feasibility</h3>
+						<h3 class="align-center">Feasibility</h3>
 						<p>
 							Once we found a fold pattern that would fit our snake, we wanted to test
 							if the skin could stretch and compress enough to allow for the snake's
@@ -155,7 +202,7 @@
 							movement. As seen in the videos, the skin was able to stretch to the snake's
 							maximum rotation and compress back into the original pattern.
 						</p>
-						
+
 					</div>
 
 					<div class="grid-video">
@@ -182,14 +229,15 @@
 
 
 					<div class="grid-item span-2">
-						<h3>Making the Skin</h3>
+						<h3 class="align-center">Making the Skin</h3>
 						<p>
-							Obviously, paper would not be a durable material for the snake's skin, 
+							Obviously, paper would not be a durable material for the snake's skin,
 							so we tried two alternatives. The first was leather, which when you soak
-							in water and then let dry, becomes stiff and will hold a pattern. However, 
+							in water and then let dry, becomes stiff and will hold a pattern. However,
 							leather was thick and hard to get into the right shape. Once we had it in
-							the right shape, it wouldn't sustain the weight of the snake, it would just 
-							collapse on itself.
+							the right shape, it wouldn't sustain the weight of the snake, it would just
+							collapse on itself. The second option we considered was tyvec. However the skin
+							interfaces with the environment and we were concerned with tyvec shedding.
 						</p>
 					</div>
 					<div class="grid-item">
@@ -200,10 +248,10 @@
 				</section>
 
 				<p></p>
-				<p>The other option we tried was taking a cotton bedsheet, drawing the fold 
-					pattern on to it, and then applying glue onto each individual triangle, 
-					leaving the fold lines unglued so it wouldn't become stiff. While time 
-					consuming, this gave us the stiff panels we needed while still being 
+				<p>The other option we tried was taking a cotton bedsheet, drawing the fold
+					pattern on to it, and then applying glue onto each individual triangle,
+					leaving the fold lines unglued so it wouldn't become stiff. While time
+					consuming, this gave us the stiff panels we needed while still being
 					flexible and water resistant.
 				</p>
 
@@ -222,6 +270,25 @@
 						<img src="images/cotton-skin-3.jpg" alt="Large image">
 						<p>Step 3: admire</p>
 					</div>
+				</section>
+<section class="flex-grid">
+
+
+					<div class="grid-item ">
+						<h3 class="align-center">Final Version</h3>
+						<p>
+							For the final version of the skin, we took a super long bedsheet, and we glued it.
+							Then we sewed it together to keep it together. At first, we wanted to flip it
+							inside out to hide the seam, but we realized the glue was too brittle and was 
+							causing the fabric to tear so instead we sewed on a seam. 
+						</p>
+					</div>
+					<div class="grid-item">
+						<img src="images/sew_skin.jpg" alt="Large image">
+					</div>
+					<div class="grid-item">
+						<img src="images/clip_skin.jpg" alt="Large image">
+					</div>
 
 
 				</section>
@@ -229,20 +296,45 @@
 		</section>
 
 		<!-- head -->
-		<section class="wrapper style1 align-center" id="head">
+		<section class="wrapper style1 align-left" id="head">
 			<div class="inner">
-				<h2>Head</h2>
-				<p>Core goals behind each design decision we made.</p>
+				<h2 class="align-center">Head</h2>
+				
 
-				<p>The objective of our project was to create a robot, inspired by a snake, that takes
-					measurements to evaluate soil. We designed it to be used in the context of evaluating
-					risk of forest fire. The equipped sensor is therefore a moisture sensor, and
-					measurements map to the user's dashboard so that they can see areas with dry soil.
-					We drew inspiration from snakes in terms of the three styles of motion that the
-					snake performs, all exhibited by species of snakes.
-
+				
+				<section class="video-grid">
+					<div class="grid-text">
+						<p>One of our core goals was sustainability. Part of this meant any surface, such as the head,
+					interfacing with the ground should not shed plastic. We decided to cut euca board, which has
+					the added benefit of being sustainably sourced and scraps could be easily recycled. We designed
+					an octagon that could be laser cut, would fit onto the u-links, fit the sensor
+					 and be able to clamp the skin into place. 
 				</p>
+				<p>
+					We also wanted the sensor to be able to go in and out of the head, similar to a 
+					tongue in order to take the soil measurements. In order to do this, we designed a small servo and rail system 
+					that would move the sensor up and down. We also designed it to be able to hold a camera,
+					so that the user could see what the snake was seeing and be able to control the snake remotely.
+				</p>
+
+					</div>
+<div class="grid-item">
+						
+						<img src="images/skin-head.jpg" alt="Large image" width="462px">
+						<img src="images/sensor_mech.png" alt="Large image">
+					</div>
+					
+
+
+					<div class="grid-video">
+						<video controls>
+							<source src="images/sensor_mechanism.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+				</section>
 			</div>
+
 		</section>
 
 
@@ -260,7 +352,9 @@
 					</li>
 					<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
-				                <p>Quick Links: <a href="index.html">Home</a> | <a href="overview.html">Overview</a> | <a href="mechanical.html">Mechanical</a> | <a href="software.html">Software</a> | <a href="electrical.html">Electrical</a></p>
+				<p>Quick Links: <a href="index.html">Home</a> | <a href="overview.html">Overview</a> | <a
+						href="mechanical.html">Mechanical</a> | <a href="software.html">Software</a> | <a
+						href="electrical.html">Electrical</a></p>
 
 				<p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 			</div>
