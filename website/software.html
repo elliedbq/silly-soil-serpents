@@ -62,9 +62,9 @@
 					</a>
 
 					<div class="dropdown-menu">
-						<a href="electrical.html#components">Components</a>
-						<a href="electrical.html#firmware">Firmware</a>
-						<a href="electrical.html#wiring">Wiring</a>
+						<a href="electrical.html#diagram">System</a>
+						<a href="electrical.html#hardware">Hardware</a>
+						<a href="electrical.html#wiring">Components</a>
 					</div>
 				</div>
 
@@ -187,12 +187,32 @@
 				class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in"
 				id="dashboard">
 				<div class="content">
-					<h2>Our team</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia
-						sit
-						amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem
-						lectus,
-						pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
+					<h2>Software Setup</h2>
+					<p>
+					We communicated with our Raspberry Pi and Picos through a linux based terminal on
+					a Windows machine. Our initial plan was to use USB connection between the Windows 
+					machine and Picos but it proved to be unreliable. We experienced a multitude of 
+					connection issues, such as changing ports, inconsistent usb detection, and errors
+					when uploading firmware. Given that these issues sprouted from passing the connection
+					to the Linux terminal through the Windows terminal, we shifted to using a Linux machine
+					in hopes of reducing the possibility of instability.
+
+					This shift, in theory, would have allowed us to communicate directly with the Picos.
+
+					Our Pico Ws were flashed with micropython firmware to allow python files to be 
+					communicated through the linux terminal.
+
+					For the motors, we flashed micropython onto the pico w and used mpremote to send 
+					code and run code on the pico. the pi would run the code with the math and send the 
+					motor commands through the serial terminal
+
+					for the sensor, we flashed circuit python onto the pico w. to change the code, 
+					we would plug the pico into the computer and change the code.py file. 
+					We also had to add the adafruit libraries seesaw and bus to the pico. 
+					The pico ran code to print the sensor values on the serial monitor
+					 The pi read the serial monitor and saved it to a csv.
+					
+					</p>
 					<ul class="actions stacked">
 						<li><a href="#" class="button">Learn More</a></li>
 					</ul>
