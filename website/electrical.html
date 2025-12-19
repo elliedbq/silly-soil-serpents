@@ -61,14 +61,10 @@
 						Electrical
 					</a>
 
-					<div class="dropdown-menu">
-						<a href="electrical.html#diagram">System</a>
-						<a href="electrical.html#hardware">Hardware</a>
-						<a href="electrical.html#wiring">Components</a>
-					</div>
+					
 				</div>
 				<div class="nav-dropdown">
-					<a href="software.html" class="nav-parent">
+					<a href="team.html" class="nav-parent">
 						About
 					</a>
 
@@ -109,94 +105,188 @@
 				<h2>Core Components</h2>
 				<p>Core goals behind each design decision we made.</p>
 				<span class="image fit"><img src="images/system-diagram.png" alt="" /></span>
-			
 
+
+				<section class="flex-grid">
+
+					<div class="grid-item">
+						<img src="images/servo_component.jpg" alt="Large image">
+						<p>Servo Motor</p>
+						<p>We used six servo motors to control the joint motion of the snake. alternated positioning of
+							the
+							servos on each link, so that the snake has both vertical and horizontal range of motion.</p>
+					</div>
+					<div class="grid-item">
+						<img src="images/pico_component.jpg" alt="Large image">
+						<p>Raspberry Pi Pico W</p>
+						<p>We used four Raspberry Pi Pico boards to control the angle of the servo motors and to recieve
+							data from the camera, sensor, and IMUs.</p>
+					</div>
+					<div class="grid-item">
+						<img src="images/sensor_component.jpg" alt="Large image">
+						<p>STEMMA Soil Moisture Sensor</p>
+						<p>We used the Adafruit STEMMA soil moisture sensor to take measurements of soil moisture, based
+							off
+							of capacitance measured.</p>
+					</div>
+					<div class="grid-item">
+						<img src="images/arducam_component.jpg" alt="Large image">
+						<p>Arducam for Raspberry Pi Pico Camera</p>
+						<p>We used a camera that connects to our Pico boards to communicate a visual to the user and
+							aids
+							them in controlling the snake.</p>
+					</div>
+					<div class="grid-item span-2">
+						<img src="images/raspi.png" alt="Large image">
+						<p>Raspberry Pi 4</p>
+						<p>We used a Raspi as a ground station - mostly because we couldn't get our computers to connect
+							to the picos.</p>
+					</div>
+			</div>
+	</div>
+	</section>
+	</section>
+
+	<!-- Firmware -->
+	<section class="wrapper style1 align-center" id="firmware">
+		<div class="inner">
+			<h2>Hardware Explanation</h2>
+			<p>
+
+				We utilized a Raspberry Pi as a ground station to visualize the soil and movement dashboards.
+				The Raspberry Pi communicated with our four Pico W microcontrollers over wifi. Each pico
+				was assigned a different task.
+				One pico controlled the motors,
+				one collected serial data from the soil sensor,
+				one sent serial data back from the camera, and
+				one collected location data from the IMU.
+
+				Our IMU Pico went unused as we invested the majority of our time on the movement,
+				soil data capturing, and camera vision components.
+
+
+			</p>
+
+		</div>
+	</section>
+
+	<!-- Firmware -->
+	<section class="wrapper style1 align-center" id="wire">
+		<div class="inner">
+			
 			<section class="flex-grid">
 
-				<div class="grid-item">
-					<img src="images/servo_component.jpg" alt="Large image">
-					<p>Servo Motor</p>
-					<p>We used six servo motors to control the joint motion of the snake. alternated positioning of the
-						servos on each link, so that the snake has both vertical and horizontal range of motion.</p>
-				</div>
-				<div class="grid-item">
-					<img src="images/pico_component.jpg" alt="Large image">
-					<p>Raspberry Pi Pico W</p>
-					<p>We used four Raspberry Pi Pico boards to control the angle of the servo motors and to recieve
-						data from the camera, sensor, and IMUs.</p>
-				</div>
-				<div class="grid-item">
-					<img src="images/sensor_component.jpg" alt="Large image">
-					<p>STEMMA Soil Moisture Sensor</p>
-					<p>We used the Adafruit STEMMA soil moisture sensor to take measurements of soil moisture, based off
-						of capacitance measured.</p>
-				</div>
-				<div class="grid-item">
-					<img src="images/arducam_component.jpg" alt="Large image">
-					<p>Arducam for Raspberry Pi Pico Camera</p>
-					<p>We used a camera that connects to our Pico boards to communicate a visual to the user and aids
-						them in controlling the snake.</p>
-				</div>
+
 				<div class="grid-item span-2">
-					<img src="images/raspi.png" alt="Large image">
-					<p>Raspberry Pi 4</p>
-					<p>We used a Raspi as a ground station - mostly because we couldn't get our computers to connect to the picos.</p>
+<h2>Wiring</h2>
+					<p>
+
+						Because the wires had to snake through our snake and move with the joints,
+						we had to be very careful about how we wired everything up. Each servo has 3 wires,
+						for the first sprint, we had them each connect all the way down the snake to the arduino. This
+						was
+						very messy. For the second sprint, we made a wire harness, that allowed us to have one red
+						power wire and one black ground wire that ran through the entire length of the snake and
+						had branches that came off and connected to the servos. However the signal line still ran
+						through the entire snake and made it hard to differentiate which wire
+						was connected to which motor. For our final sprint, we kept the power and ground wire harnesses
+						and braided the signal wires together in groups of 3 with different colors to tell them apart.
+						We also zip tied the original motor wires next to the motor so we didn't have to cut them and
+						they wouldn't be floating around.
+
+					</p>
+
+
 				</div>
-</div>
-</div>
+				<div class="grid-item">
+					<img src="images/sprint3wire.jpeg" alt="Large image">
+					<p>Final sprint wiring. yellow grey and orange braided together.</p>
+				</div>
+
+
+
 			</section>
-		</section>
 
-		<!-- Firmware -->
-		<section class="wrapper style1 align-center" id="firmware">
+
+
+	<section class="flex-grid">
+
+
+		<div class="grid-item">
+
+			<img src="images/sprint1-wire.jpg" alt="Large image">
+			<p>First Sprint Wiring</p>
+
+
+		</div>
+		<div class="grid-item">
+			<img src="images/wire_harness.jpg" alt="Large image">
+			<p>Wire Harness for second sprint</p>
+		</div>
+
+		<div class="grid-item">
+			<img src="images/wires.jpg" alt="Large image">
+			<p>Wiring for second sprint</p>
+		</div>
+
+	</section>
+	</div>
+	</section>
+	</section>
+
+	<!-- Firmware -->
+	<section class="wrapper style1 align-center" id="firmware">
+		<div class="inner">
+			<h2>Sensor Calibration</h2>
+			<p>
+
+				We had an i2c soil moisture sensor that we calibrated using an arduino.
+				Unfortunately, we were unable to get the sensor to read with the picos,
+				so it was not part of our final product.
+
+			</p>
+			<section class="flex-grid">
+
+
+
+				<div class="grid-item span-2">
+					<img src="images/sensor_calibration.jpg" alt="Large image">
+				</div>
+				<div class="grid-item">
+					<img src="images/sensor_calibration_pic.jpeg">
+				</div>
+
+			</section>
+
+
+		</div>
+	</section>
+
+	<!-- Acknowledgements -->
+	<section class="wrapper style1 align-center" id="ack">
+		<div class="inner">
+			<h2>Acknowledgements</h2>
+			<p> A special thank you to <a href="https://www.linkedin.com/in/oscarbaox/" >Oscar Bao</a> for helping us troubleshoot electrical issues. </p>
+			<span class="image fit"><img src="images/oscar-working.jpeg" alt="" /></span>
+
+		</div>
+	</section>
+
+
+	<!-- Footer -->
+	<footer class="wrapper style1 align-center">
 			<div class="inner">
-				<h2>Hardware Explanation</h2>
-				<p>
-
-					We utilized a Raspberry Pi as a ground station to visualize the soil and movement dashboards.
-					The Raspberry Pi communicated with our four Pico W microcontrollers over wifi. Each pico
-					was assigned a different task.
-					One pico controlled the motors,
-					one collected serial data from the soil sensor,
-					one sent serial data back from the camera, and
-					one collected location data from the IMU.
-
-					Our IMU Pico went unused as we invested the majority of our time on the movement,
-					soil data capturing, and camera vision components.
+			
+  <a href="index.html">
+    <img
+      src="images/logo.png"
+      alt="Home"
+      class="footer-image"
+    >
+  </a>
 
 
-				</p>
-
-			</div>
-		</section>
-
-		<!-- Acknowledgements -->
-		<section class="wrapper style1 align-center" id="ack">
-			<div class="inner">
-				<h2>Acknowledgements</h2>
-				<p> A special thank you to Oscar Bao for helping us troubleshoot electrical issues. </p>
-				<span class="image fit"><img src="images/oscar-working.jpeg" alt="" /></span>
-
-			</div>
-		</section>
-
-
-		<!-- Footer -->
-		<footer class="wrapper style1 align-center">
-			<div class="inner">
-				<ul class="icons">
-					<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a>
-					</li>
-					<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
-					</li>
-					<li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a>
-					</li>
-					<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
-				</ul>
-				<p>Quick Links: <a href="index.html">Home</a> | <a href="overview.html">Overview</a> | <a
-						href="mechanical.html">Mechanical</a> | <a href="software.html">Software</a> | <a
-						href="electrical.html">Electrical</a></p>
+				                <p>Quick Links: <a href="index.html">Home</a> | <a href="overview.html">Overview</a> | <a href="mechanical.html">Mechanical</a> | <a href="software.html">Software</a> | <a href="electrical.html">Electrical</a> | <a href="team.html">About</a></p>
 
 				<p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 			</div>

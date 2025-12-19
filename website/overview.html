@@ -61,14 +61,10 @@
 						Electrical
 					</a>
 
-					<div class="dropdown-menu">
-						<a href="electrical.html#diagram">System</a>
-						<a href="electrical.html#hardware">Hardware</a>
-						<a href="electrical.html#wiring">Components</a>
-					</div>
+					
 				</div>
 				<div class="nav-dropdown">
-					<a href="about.html" class="nav-parent">
+					<a href="team.html" class="nav-parent">
 						About
 					</a>
 
@@ -157,47 +153,55 @@
                             torque to accomplish the movements we desired. We started designing more mechanisms,
                             such as the "head" and "tail" of the snake, and the sensor-lowering mechanism. We also 
                             starting testing and calibrating our soil moisture sensor in different levels of wet soil.
+                            A major goal for this sprint was getting the snake to move in a serpentine movement,
+                            which we managed to do using an arduino. This sprint also involved getting the 
+                            live dashboard set up and starting to iterate on the skin design. 
 						</p>
 					</div>
+                    
 					<div class="grid-item">
 						<img src="images/small_motor_u_links.jpg" alt="Large image">
+					</div>
+                    <div class="grid-video span-2">
+						<video controls>
+							<source src="images/sprint2movement.MOV" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
 					</div>
                     <div class="grid-item">
 						<img src="images/head_design.jpg" alt="Large image">
 					</div>
-                    <div class="grid-item">
-						<img src="images/sensor_calibration.jpg" alt="Large image">
-					</div>
-                    <div class= "grid-item">
-                        <img src="images/sensor_calibration_pic.jpeg">
-                    </div>
+                    
 				</section>
 
 				<p></p>
                 <h3>Sprint 3</h3>
 				<p>We came across several challenges in this project, and most of them came
                     at this integration stage. Specifically, integrating electrical hardware with
-                    software was difficult for the moisture sensor, camera, and Pico boards. Mechanically,
-                    we had some trouble with running wires for the servo motors through the snake body, 
-                    because tangling caused limited mobility. We solved this problem by creating a wire 
-                    harness, which also improved organization.
+                    software was difficult for the moisture sensor, camera, and Pico boards. This is 
+                    when we decided to add the raspberry pi as a ground station instead of our computers.
+                    We were able to meet two of our goals for software, having a wireless snake and a 
+                    dashboard that could control the snake remotely. But they did not work together...
 				</p>
 
 				<section class="flex-grid">
 
 
-					<div class="grid-item">
-						<img src="images/wire_harness.jpg" alt="Large image">
-						<p>Wire Harness</p>
+					<div class="grid-video span-2">
+						<video controls>
+							<source src="images/wireless_motion_with_skin.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+                        <p class="align-center">Top: wireless control, Right: keyboard control</p>
 					</div>
-					<div class="grid-item">
-						<img src="images/Pico_hell.jpg" alt="Large image">
-						<p>Trying to connect to our Pico boards</p>
+                    <div class="grid-video">
+						<video controls>
+							<source src="images/keyboardcontrolsnakemove.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
 					</div>
-					<div class="grid-item">
-						<img src="images/fixing_the_battery.jpeg" alt="Large image">
-						<p>Positioning the microcontroller inside of the skin</p>
-					</div>
+					
+					
 
 
 				</section>
@@ -392,22 +396,22 @@
 
         <!-- Footer -->
         <footer class="wrapper style1 align-center">
-            <div class="inner">
-                <ul class="icons">
-                    <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a>
-                    </li>
-                    <li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
-                    </li>
-                    <li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a>
-                    </li>
-                    <li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
-                </ul>
-                <p>Quick Links: <a href="index.html">Home</a> | <a href="overview.html">Overview</a> | <a href="mechanical.html">Mechanical</a> | <a href="software.html">Software</a> | <a href="electrical.html">Electrical</a></p>
-                
-                <p>&copy; Silly Soil Serpents. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-            </div>
-        </footer>
+			<div class="inner">
+			
+  <a href="index.html">
+    <img
+      src="images/logo.png"
+      alt="Home"
+      class="footer-image"
+    >
+  </a>
+
+
+				                <p>Quick Links: <a href="index.html">Home</a> | <a href="overview.html">Overview</a> | <a href="mechanical.html">Mechanical</a> | <a href="software.html">Software</a> | <a href="electrical.html">Electrical</a> | <a href="team.html">About</a></p>
+
+				<p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+			</div>
+		</footer>
 
     </div>
 
