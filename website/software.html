@@ -112,20 +112,75 @@
 					<p>A classic snake motion, serpentine motion relies on friction between the 
 					snake and the ground to push it forward. We recreated this movement with a mathematical 
 					model with parameters that are tuned based on the snakes length, number of segments, speed, 
-					and direction of motion.</p>
+					and direction of motion. The image below shows a simulation in MATLAB of direction of the 
+					after adjusting the direction parameter.</p>
 					<img src="images/serpentine_sim_photo.jpg" alt="Large image">
 				</div>
 				<div class="grid-item">
 					<img src="images/concertina_animation.gif" alt="Large image">
 					<p>Concertina Motion</p>
+					<p>Concertina motion resembles inchworm motion, and is used by snakes when they have
+						objects to push off of tp propel them forward. Our snake pushed off of the floor,
+						and was propelled by the friction between the head and the rug.
+					</p>
+					<img src="images/concertina_illustration.jpg" alt="Large image">
 				</div>
 				<div class="grid-item">
 					<img src="images/sidewinding_animation.gif" alt="Large image">
 					<p>Sidewinding Motion</p>
+					<p>Sidewinding motion moves the snake perpendicular to the direction that it 
+						would be moving in if it were using serpentine motion. It lifts some parts of 
+						its body while pushing off of the ground with the others, creating a distinct trail 
+						behind it. Snakes use this form of motion in the desert when they need to move up slopes
+						covered with sand. The image below shows an early sketch of sidewinding motion being 
+						translated to our snake's mobility.
+					</p>
+					<img src="images/sidewinding_sketch.jpg" alt="Large image">
 				</div>
-
-
 			</section>
+
+			<section class="video-grid">
+					<div class="grid-text">
+						<h3>Application to the Robot</h3>
+						<p>
+							After reading researchers' work on how snake locomotion can be applied to 
+							robotics, we calculated how the motors should move to replicate snake motion 
+							in our robot. This video shows successful execution of serpentine motion. The
+							research papers that we used are listed here.
+						</p>
+						
+						<p>Akbarzadeh, Alireza, Safehian, Jalil, Safehian, Javad, and Kalani, Hadi.
+							 "Generating Snake Robot Concertina Locomotion Using a New Dynamic Curve". 
+							 International Journal of Modeling and Optimization, Vol. 1, No. 2, 
+							 June 2011
+							 https://www.ijmo.org/papers/24-T0125.pdf
+						</p>
+
+						<p>Ivan Virgala, Martin Varga, Peter Ján Sinčák, Tomáš Merva, Roman Mykhailyshyn, Michal Kelemen,
+							Mathematical framework for snake robot motion in a confined space,
+							Applied Mathematical Modelling,
+							Volume 132,
+							2024,
+							Pages 22-40,
+							ISSN 0307-904X,
+							https://doi.org/10.1016/j.apm.2024.04.020.
+						</p>
+
+						<p>Burdick, J.W. & Radford, J. & Chirikjian, Gregory. (1993). 
+							'Sidewinding' locomotion gait for hyper-redundant robots. 
+							Advanced Robotics. 9. 101 - 106 vol.3. 10.1109/ROBOT.1993.291864. 
+							https://www.researchgate.net/publication/3556554_
+						</p>
+					</div>
+
+					<div class="grid-video">
+						<video controls>
+							<source src="videos/serpentine_motion_vid.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+			</section>
+
 
 			<!-- Two -->
 			<section
