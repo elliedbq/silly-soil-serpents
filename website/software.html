@@ -196,23 +196,47 @@
 					when uploading firmware. Given that these issues sprouted from passing the connection
 					to the Linux terminal through the Windows terminal, we shifted to using a Linux machine
 					in hopes of reducing the possibility of instability.
-
-					This shift, in theory, would have allowed us to communicate directly with the Picos.
-
-					Our Pico Ws were flashed with micropython firmware to allow python files to be 
-					communicated through the linux terminal.
-
-					For the motors, we flashed micropython onto the pico w and used mpremote to send 
-					code and run code on the pico. the pi would run the code with the math and send the 
-					motor commands through the serial terminal
-
-					for the sensor, we flashed circuit python onto the pico w. to change the code, 
-					we would plug the pico into the computer and change the code.py file. 
-					We also had to add the adafruit libraries seesaw and bus to the pico. 
-					The pico ran code to print the sensor values on the serial monitor
-					 The pi read the serial monitor and saved it to a csv.
-					
 					</p>
+					<p>
+					This shift, in theory, would have allowed us to communicate directly with the Picos.
+					Unfortunately, we continued to have connnection issues. With the deadline approaching,
+					the Raspberry Pi seemed to be our only hope. Luckily, we were able to establish a reliable connection
+					via SSH within a few minutes! We did not have connection issues for the remainder of the project
+					</p>
+				
+					<h2>MicroPython and Firmware</h2>
+					<p>
+					Our Pico Ws were connected to the Pi via usb for the first week of testing. We then shifted to
+					wifi based connection to avoid chord and wire pulling. The Picos were flashed with micropython 
+					firmware to allow python files to be communicated through the linux terminal. 
+					<p>
+					We changed the firmware on our Picos depending on their needs. Our soil sensor Pico required us 
+					to flash Circuit Python while our camera Pico required us to flash C, as we communicated through
+					Arduino IDE. 
+					</p>
+
+					<h2>Pico and Pi Communication</h2>
+					<p>
+					Connected to the Pi via SSH, we were able to push python scripts to the Picos from our terminal. All 
+					mathematical computations for the snake's movement were performed by the Pi. These computations were
+					then converted to serial data and communicated to the Picos via usb or wifi.
+					</p>
+					<h2>Slithering</h2>	
+					<p>
+						<h3>Concertina</h3>
+						Our first iteration of the snake movement was done using a simple time-based Arduino sketch.
+						We used a loop to control the timing of the motor movements, mimicking an inchworm-like
+						motion. After researching and simulating the three types of snake movements, and setting up 
+						our Picos, we began to code the complex math based algorithms to compute the motor angles needed
+					 	for each step of movement.
+						<h3>Serpentine</h3>
+						Our serpentine motion 
+
+					</p>
+					<p>
+
+					</p>
+
 					<ul class="actions stacked">
 						<li><a href="#" class="button">Learn More</a></li>
 					</ul>
